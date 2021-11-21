@@ -62,5 +62,3 @@ class QuickstartUser(HttpUser):
         self.client.headers.update({'X-CSRFToken': token})
         print(rs.request.body)
         logging.info(token)
-
-# locust -f --config=master.conf D:\LocustTestMe\locustHttpUserTest.py
