@@ -3,7 +3,7 @@ from locust import HttpUser, task, constant_throughput
 
 
 class QuickstartUser(HttpUser):
-    wait_time1 = constant_throughput(30)
+    wait_time = constant_throughput(30)
     host = "http://172.27.176.7"
 
     @task(50)
