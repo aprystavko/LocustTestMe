@@ -3,7 +3,7 @@ from locust import HttpUser, task, constant_throughput
 
 
 class QuickstartUser(HttpUser):
-    wait_time = constant_throughput(30)
+    wait_time1 = constant_throughput(30)
     host = "http://172.27.176.7"
 
     @task(50)
@@ -57,7 +57,7 @@ class QuickstartUser(HttpUser):
         self.client.post("/api/auth/logout", name='Logout', verify=False)
 
     def on_start(self):
-        rs = self.client.post("/api/auth/login", json={"username": "alice", "password": "Qamania123"}, name='Login', verify=False)
+        rs = self.client.post("/api/auth/login", json={"username": "bob", "password": "Qamania123"}, name='Login', verify=False)
         token = self.client.cookies.get('csrftoken')
         self.client.headers.update({'X-CSRFToken': token})
         # logging
